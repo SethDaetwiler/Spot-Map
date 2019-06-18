@@ -7,13 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		88DDE9429EEE769976A6D8C8 /* Pods_Spot_Map.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE0CDB2DB7387524AFB6F23 /* Pods_Spot_Map.framework */; };
+		C079F207B1F95F198118E9DE /* Pods_Spot_MapUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A611192C33C82F68528764F0 /* Pods_Spot_MapUITests.framework */; };
+		C7EF49E79E36732FB33BB517 /* Pods_Spot_MapTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F946822B6FEC438CCA367D6D /* Pods_Spot_MapTests.framework */; };
+		DC26FA6D2225DA91000B799B /* createView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC26FA6C2225DA91000B799B /* createView.swift */; };
+		DC26FA6F2225EB4B000B799B /* loadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC26FA6E2225EB4A000B799B /* loadView.swift */; };
+		DC280AD92220BDAB00DC5BF5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC280AD82220BDAB00DC5BF5 /* GoogleService-Info.plist */; };
+		DC4B52ED225FEE1F00F6452B /* spotsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4B52EC225FEE1F00F6452B /* spotsCollectionViewCell.swift */; };
+		DC4B52EF225FEE7B00F6452B /* spotsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4B52EE225FEE7B00F6452B /* spotsCollectionView.swift */; };
+		DC4B52F1225FFE8B00F6452B /* spotAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4B52F0225FFE8B00F6452B /* spotAnnotation.swift */; };
+		DC4B52F6226003DE00F6452B /* SpotDetailAnnotationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC4B52F5226003DE00F6452B /* SpotDetailAnnotationView.xib */; };
+		DC4B52F822600B5000F6452B /* SpotDetailAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4B52F722600B5000F6452B /* SpotDetailAnnotationView.swift */; };
+		DC4B52FA2260193700F6452B /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4B52F92260193700F6452B /* AnnotationView.swift */; };
+		DC5564A021D7017100026A93 /* loginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC55649F21D7017100026A93 /* loginView.swift */; };
+		DC5564A221D7087300026A93 /* functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5564A121D7087300026A93 /* functions.swift */; };
 		DC58166821D5A25500423032 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC58166721D5A25500423032 /* AppDelegate.swift */; };
-		DC58166A21D5A25500423032 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC58166921D5A25500423032 /* ViewController.swift */; };
 		DC58166D21D5A25500423032 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC58166B21D5A25500423032 /* Main.storyboard */; };
 		DC58166F21D5A25700423032 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC58166E21D5A25700423032 /* Assets.xcassets */; };
 		DC58167221D5A25700423032 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC58167021D5A25700423032 /* LaunchScreen.storyboard */; };
 		DC58167D21D5A25800423032 /* Spot_MapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC58167C21D5A25800423032 /* Spot_MapTests.swift */; };
 		DC58168821D5A25800423032 /* Spot_MapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC58168721D5A25800423032 /* Spot_MapUITests.swift */; };
+		DC856E6C2237041500762200 /* selectedSpotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC856E6B2237041500762200 /* selectedSpotView.swift */; };
+		DC8C13F922261C0C00E869E8 /* spotsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8C13F822261C0C00E869E8 /* spotsView.swift */; };
+		DC998FE021D81F34007B65C4 /* serverSide.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC998FDF21D81F34007B65C4 /* serverSide.swift */; };
+		DCA42134221CBA0D004DF543 /* Spot.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA42133221CBA0D004DF543 /* Spot.swift */; };
+		DCA42177221E47EB004DF543 /* mapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA42176221E47EB004DF543 /* mapView.swift */; };
+		DCA42179221F8A4A004DF543 /* tabBarNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA42178221F8A4A004DF543 /* tabBarNavigation.swift */; };
+		DCA4217B221FA50E004DF543 /* spotCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA4217A221FA50E004DF543 /* spotCreator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +54,25 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		02E6A2DD475F849AC65AA1EB /* Pods-Spot MapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spot MapTests.release.xcconfig"; path = "Target Support Files/Pods-Spot MapTests/Pods-Spot MapTests.release.xcconfig"; sourceTree = "<group>"; };
+		0C82B1F7C0B85359B037EFDD /* Pods-Spot MapUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spot MapUITests.debug.xcconfig"; path = "Target Support Files/Pods-Spot MapUITests/Pods-Spot MapUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		621EBAEFC89901E53E6D8B58 /* Pods-Spot MapUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spot MapUITests.release.xcconfig"; path = "Target Support Files/Pods-Spot MapUITests/Pods-Spot MapUITests.release.xcconfig"; sourceTree = "<group>"; };
+		A611192C33C82F68528764F0 /* Pods_Spot_MapUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Spot_MapUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BAE0CDB2DB7387524AFB6F23 /* Pods_Spot_Map.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Spot_Map.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD91070FA1FE0FB1BF3ED28A /* Pods-Spot Map.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spot Map.debug.xcconfig"; path = "Target Support Files/Pods-Spot Map/Pods-Spot Map.debug.xcconfig"; sourceTree = "<group>"; };
+		DC26FA6C2225DA91000B799B /* createView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createView.swift; sourceTree = "<group>"; };
+		DC26FA6E2225EB4A000B799B /* loadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loadView.swift; sourceTree = "<group>"; };
+		DC280AD82220BDAB00DC5BF5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DC4B52EC225FEE1F00F6452B /* spotsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = spotsCollectionViewCell.swift; sourceTree = "<group>"; };
+		DC4B52EE225FEE7B00F6452B /* spotsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = spotsCollectionView.swift; sourceTree = "<group>"; };
+		DC4B52F0225FFE8B00F6452B /* spotAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = spotAnnotation.swift; sourceTree = "<group>"; };
+		DC4B52F5226003DE00F6452B /* SpotDetailAnnotationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpotDetailAnnotationView.xib; sourceTree = "<group>"; };
+		DC4B52F722600B5000F6452B /* SpotDetailAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotDetailAnnotationView.swift; sourceTree = "<group>"; };
+		DC4B52F92260193700F6452B /* AnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AnnotationView.swift; path = ../AnnotationView.swift; sourceTree = "<group>"; };
+		DC55649F21D7017100026A93 /* loginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginView.swift; sourceTree = "<group>"; };
+		DC5564A121D7087300026A93 /* functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = functions.swift; sourceTree = "<group>"; };
 		DC58166421D5A25500423032 /* Spot Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Spot Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC58166721D5A25500423032 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DC58166921D5A25500423032 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DC58166C21D5A25500423032 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DC58166E21D5A25700423032 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DC58167121D5A25700423032 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +83,16 @@
 		DC58168321D5A25800423032 /* Spot MapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Spot MapUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC58168721D5A25800423032 /* Spot_MapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spot_MapUITests.swift; sourceTree = "<group>"; };
 		DC58168921D5A25800423032 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC856E6B2237041500762200 /* selectedSpotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = selectedSpotView.swift; sourceTree = "<group>"; };
+		DC8C13F822261C0C00E869E8 /* spotsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = spotsView.swift; sourceTree = "<group>"; };
+		DC998FDF21D81F34007B65C4 /* serverSide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = serverSide.swift; sourceTree = "<group>"; };
+		DCA42133221CBA0D004DF543 /* Spot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spot.swift; sourceTree = "<group>"; };
+		DCA42176221E47EB004DF543 /* mapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapView.swift; sourceTree = "<group>"; };
+		DCA42178221F8A4A004DF543 /* tabBarNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tabBarNavigation.swift; sourceTree = "<group>"; };
+		DCA4217A221FA50E004DF543 /* spotCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = spotCreator.swift; sourceTree = "<group>"; };
+		F13465DE965C24437CD8A79C /* Pods-Spot Map.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spot Map.release.xcconfig"; path = "Target Support Files/Pods-Spot Map/Pods-Spot Map.release.xcconfig"; sourceTree = "<group>"; };
+		F946822B6FEC438CCA367D6D /* Pods_Spot_MapTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Spot_MapTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF901493F8E1CDD9A465105F /* Pods-Spot MapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spot MapTests.debug.xcconfig"; path = "Target Support Files/Pods-Spot MapTests/Pods-Spot MapTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88DDE9429EEE769976A6D8C8 /* Pods_Spot_Map.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7EF49E79E36732FB33BB517 /* Pods_Spot_MapTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,19 +116,54 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C079F207B1F95F198118E9DE /* Pods_Spot_MapUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		36D11C16AD27EB6CAD4F2125 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BAE0CDB2DB7387524AFB6F23 /* Pods_Spot_Map.framework */,
+				F946822B6FEC438CCA367D6D /* Pods_Spot_MapTests.framework */,
+				A611192C33C82F68528764F0 /* Pods_Spot_MapUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7BEE00E14A5A5A1E66D81CB3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CD91070FA1FE0FB1BF3ED28A /* Pods-Spot Map.debug.xcconfig */,
+				F13465DE965C24437CD8A79C /* Pods-Spot Map.release.xcconfig */,
+				FF901493F8E1CDD9A465105F /* Pods-Spot MapTests.debug.xcconfig */,
+				02E6A2DD475F849AC65AA1EB /* Pods-Spot MapTests.release.xcconfig */,
+				0C82B1F7C0B85359B037EFDD /* Pods-Spot MapUITests.debug.xcconfig */,
+				621EBAEFC89901E53E6D8B58 /* Pods-Spot MapUITests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		DC4B52F4225FFFE900F6452B /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				DC4B52EC225FEE1F00F6452B /* spotsCollectionViewCell.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
 		DC58165B21D5A25500423032 = {
 			isa = PBXGroup;
 			children = (
+				DCA42178221F8A4A004DF543 /* tabBarNavigation.swift */,
 				DC58166621D5A25500423032 /* Spot Map */,
 				DC58167B21D5A25800423032 /* Spot MapTests */,
 				DC58168621D5A25800423032 /* Spot MapUITests */,
 				DC58166521D5A25500423032 /* Products */,
+				7BEE00E14A5A5A1E66D81CB3 /* Pods */,
+				36D11C16AD27EB6CAD4F2125 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,11 +181,18 @@
 			isa = PBXGroup;
 			children = (
 				DC58166721D5A25500423032 /* AppDelegate.swift */,
-				DC58166921D5A25500423032 /* ViewController.swift */,
+				DC26FA6E2225EB4A000B799B /* loadView.swift */,
 				DC58166B21D5A25500423032 /* Main.storyboard */,
+				DC8AD8F0220CB683007E1B94 /* userReg */,
+				DCA4217C221FA570004DF543 /* Interface */,
+				DC4B52F4225FFFE900F6452B /* Subviews */,
+				DCEC49CF22694AEC00403B13 /* Referance Classes */,
+				DC9CAAD72260E96800C8B2F3 /* Custom Annotation */,
+				DCA42135221CBAAE004DF543 /* Objects */,
 				DC58166E21D5A25700423032 /* Assets.xcassets */,
 				DC58167021D5A25700423032 /* LaunchScreen.storyboard */,
 				DC58167321D5A25700423032 /* Info.plist */,
+				DC280AD82220BDAB00DC5BF5 /* GoogleService-Info.plist */,
 			);
 			path = "Spot Map";
 			sourceTree = "<group>";
@@ -125,6 +215,55 @@
 			path = "Spot MapUITests";
 			sourceTree = "<group>";
 		};
+		DC8AD8F0220CB683007E1B94 /* userReg */ = {
+			isa = PBXGroup;
+			children = (
+				DC55649F21D7017100026A93 /* loginView.swift */,
+				DC26FA6C2225DA91000B799B /* createView.swift */,
+			);
+			path = userReg;
+			sourceTree = "<group>";
+		};
+		DC9CAAD72260E96800C8B2F3 /* Custom Annotation */ = {
+			isa = PBXGroup;
+			children = (
+				DC4B52F5226003DE00F6452B /* SpotDetailAnnotationView.xib */,
+				DC4B52F722600B5000F6452B /* SpotDetailAnnotationView.swift */,
+				DC4B52F0225FFE8B00F6452B /* spotAnnotation.swift */,
+				DC4B52F92260193700F6452B /* AnnotationView.swift */,
+			);
+			path = "Custom Annotation";
+			sourceTree = "<group>";
+		};
+		DCA42135221CBAAE004DF543 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				DCA42133221CBA0D004DF543 /* Spot.swift */,
+			);
+			path = Objects;
+			sourceTree = "<group>";
+		};
+		DCA4217C221FA570004DF543 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				DCA42176221E47EB004DF543 /* mapView.swift */,
+				DC8C13F822261C0C00E869E8 /* spotsView.swift */,
+				DCA4217A221FA50E004DF543 /* spotCreator.swift */,
+				DC856E6B2237041500762200 /* selectedSpotView.swift */,
+				DC4B52EE225FEE7B00F6452B /* spotsCollectionView.swift */,
+			);
+			name = Interface;
+			sourceTree = "<group>";
+		};
+		DCEC49CF22694AEC00403B13 /* Referance Classes */ = {
+			isa = PBXGroup;
+			children = (
+				DC998FDF21D81F34007B65C4 /* serverSide.swift */,
+				DC5564A121D7087300026A93 /* functions.swift */,
+			);
+			path = "Referance Classes";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +271,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DC58168C21D5A25800423032 /* Build configuration list for PBXNativeTarget "Spot Map" */;
 			buildPhases = (
+				9FDF7C7AAA5E6966FCE6DF8F /* [CP] Check Pods Manifest.lock */,
 				DC58166021D5A25500423032 /* Sources */,
 				DC58166121D5A25500423032 /* Frameworks */,
 				DC58166221D5A25500423032 /* Resources */,
+				3ED68FD17A7F3967E484C3C1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -149,6 +290,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DC58168F21D5A25800423032 /* Build configuration list for PBXNativeTarget "Spot MapTests" */;
 			buildPhases = (
+				6407BB71201CE6A3245989C0 /* [CP] Check Pods Manifest.lock */,
 				DC58167421D5A25800423032 /* Sources */,
 				DC58167521D5A25800423032 /* Frameworks */,
 				DC58167621D5A25800423032 /* Resources */,
@@ -167,6 +309,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DC58169221D5A25800423032 /* Build configuration list for PBXNativeTarget "Spot MapUITests" */;
 			buildPhases = (
+				5CDE6C6D93315A2AB784162F /* [CP] Check Pods Manifest.lock */,
 				DC58167F21D5A25800423032 /* Sources */,
 				DC58168021D5A25800423032 /* Frameworks */,
 				DC58168121D5A25800423032 /* Resources */,
@@ -230,6 +373,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC58167221D5A25700423032 /* LaunchScreen.storyboard in Resources */,
+				DC280AD92220BDAB00DC5BF5 /* GoogleService-Info.plist in Resources */,
+				DC4B52F6226003DE00F6452B /* SpotDetailAnnotationView.xib in Resources */,
 				DC58166F21D5A25700423032 /* Assets.xcassets in Resources */,
 				DC58166D21D5A25500423032 /* Main.storyboard in Resources */,
 			);
@@ -251,13 +396,125 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3ED68FD17A7F3967E484C3C1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Spot Map/Pods-Spot Map-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Spot Map/Pods-Spot Map-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5CDE6C6D93315A2AB784162F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Spot MapUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6407BB71201CE6A3245989C0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Spot MapTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9FDF7C7AAA5E6966FCE6DF8F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Spot Map-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DC58166021D5A25500423032 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC58166A21D5A25500423032 /* ViewController.swift in Sources */,
+				DC4B52F1225FFE8B00F6452B /* spotAnnotation.swift in Sources */,
+				DC26FA6F2225EB4B000B799B /* loadView.swift in Sources */,
+				DC4B52F822600B5000F6452B /* SpotDetailAnnotationView.swift in Sources */,
+				DCA42134221CBA0D004DF543 /* Spot.swift in Sources */,
+				DC8C13F922261C0C00E869E8 /* spotsView.swift in Sources */,
+				DCA42177221E47EB004DF543 /* mapView.swift in Sources */,
+				DCA4217B221FA50E004DF543 /* spotCreator.swift in Sources */,
+				DC856E6C2237041500762200 /* selectedSpotView.swift in Sources */,
+				DC4B52FA2260193700F6452B /* AnnotationView.swift in Sources */,
+				DC4B52ED225FEE1F00F6452B /* spotsCollectionViewCell.swift in Sources */,
+				DC5564A021D7017100026A93 /* loginView.swift in Sources */,
+				DC4B52EF225FEE7B00F6452B /* spotsCollectionView.swift in Sources */,
 				DC58166821D5A25500423032 /* AppDelegate.swift in Sources */,
+				DC26FA6D2225DA91000B799B /* createView.swift in Sources */,
+				DC998FE021D81F34007B65C4 /* serverSide.swift in Sources */,
+				DC5564A221D7087300026A93 /* functions.swift in Sources */,
+				DCA42179221F8A4A004DF543 /* tabBarNavigation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,10 +687,13 @@
 		};
 		DC58168D21D5A25800423032 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD91070FA1FE0FB1BF3ED28A /* Pods-Spot Map.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7C8TVELL3T;
 				INFOPLIST_FILE = "Spot Map/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -447,10 +707,13 @@
 		};
 		DC58168E21D5A25800423032 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F13465DE965C24437CD8A79C /* Pods-Spot Map.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7C8TVELL3T;
 				INFOPLIST_FILE = "Spot Map/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -464,6 +727,7 @@
 		};
 		DC58169021D5A25800423032 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF901493F8E1CDD9A465105F /* Pods-Spot MapTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -484,6 +748,7 @@
 		};
 		DC58169121D5A25800423032 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 02E6A2DD475F849AC65AA1EB /* Pods-Spot MapTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -504,6 +769,7 @@
 		};
 		DC58169321D5A25800423032 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0C82B1F7C0B85359B037EFDD /* Pods-Spot MapUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -523,6 +789,7 @@
 		};
 		DC58169421D5A25800423032 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 621EBAEFC89901E53E6D8B58 /* Pods-Spot MapUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
