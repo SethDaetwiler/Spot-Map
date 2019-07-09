@@ -16,7 +16,7 @@ class loginView : UIViewController, UITextFieldDelegate{
     
     let def = UserDefaults.standard
     
-    let f = functions()
+    let f = global()
     let ss = serverSide()
     
     @IBOutlet var emailTextField: UITextField!

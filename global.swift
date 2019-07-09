@@ -12,35 +12,31 @@ import MapKit
 import CoreLocation
 
 
-class functions {
+class global {
+    
+    //App globals
     let ss = serverSide()
-    
     let screen = UIScreen.main.bounds
-    
     let cGreen : UIColor = UIColor(displayP3Red: 51/255, green: 196/255, blue: 135/255, alpha: 1)
+    //Map globals
+    let locationManager = CLLocationManager()
+    let regionInMeters: Double = 1000
     
-    
-    //ratio (depriciated)
-    func r() -> CGFloat{
-        return screen.width / 414
-    }
-    
-    //takes a non nil string as an argument and cleans the common seperating characters and integers
-    //returns cleaned string
+    // Takes a non nil string as an argument and cleans the common seperating characters and integers
+    // Returns cleaned string
     func separateTagsBySpace(tagString: String) -> String {
         var returnString = String()
         let lTagString = tagString.lowercased()
-        
         var tagComponents: [String] = lTagString.components(separatedBy: " ")
-        //loop through the tags and remove uneccissary compontents
+        // Loop through the tags and remove uneccissary compontents
         for i in 0...tagComponents.count - 1 {
             tagComponents[i] = tagComponents[i].trimmingCharacters(in: CharacterSet(charactersIn: "0123456789,-\\|&/."))
-            //fill out returnString with elements
+            // Fill out returnString with elements
             returnString += tagComponents[i] + " "
         }
         return returnString
     }
-    //formats and returns a string for display of tags
+    // Formats and returns a string for display of tags
     func formatTagsForDisplay(tagString: String) -> String{
         var returnString = ""
         let tags : [String] = tagString.components(separatedBy: " ")
@@ -86,7 +82,60 @@ class functions {
         
         return returnString
     }
+    
+    
+    // Map Managers
+    //-----------------------------------------------------------------------
+    //centers and frames the user location
+    func centerViewOnUserLocation(map: MKMapView){
+        if let userLocation = locationManager.location?.coordinate {
+            let region = MKCoordinateRegion.init(center: userLocation, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
+            map.setRegion(region, animated: true)
+        }
+    }
+    //sets the accuracy of the location manager
+    func setupLocationManager(){
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+    }
+    //checks if location services are enabled
+    func checkLocationServices(map: MKMapView){
+        if CLLocationManager.locationServicesEnabled(){
+            setupLocationManager()
+            checkLocationAuthorization(map: map)
+        } else {
+            //show alert letting the user know that have to turn it on for function
+        }
+    }
+    //checks for user permissions
+    func checkLocationAuthorization(map: MKMapView){
+        switch CLLocationManager.authorizationStatus(){
+        case .authorizedWhenInUse:
+            //shows user on map
+            map.showsUserLocation = true
+            //centers and zooms in on user location
+            centerViewOnUserLocation(map: map)
+            //updates location of user
+            locationManager.startUpdatingLocation()
+            break
+        case .denied:
+            //show alert
+            break
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+            break
+        case .restricted:
+            //show alert
+            break
+        case .authorizedAlways:
+            break
+        }
+    }
+
+    
+    
+    
 }
+
 
 
 

@@ -6,6 +6,9 @@
 //  Copyright © 2019 Seth Daetwiler. All rights reserved.
 //
 
+// ONLY WORK ON COLLECTION VIEW
+
+
 import UIKit
 import Foundation
 import CoreLocation
@@ -16,17 +19,15 @@ class spotsView: UITableViewController, UISearchBarDelegate {
     @IBOutlet var search: UISearchBar!
     
     let ss = serverSide()
-    let f = functions()
+    let g = global()
     var spots = [Spot]()
     let cellId = "cell id"
     
     var selectedSpot = Spot()
-    //var selected = ["id":"", "location": CLLocationCoordinate2D(),"name": "", "desc": "","tags": ""] as [String : Any]
-    
-    var searchActive = false
-    
+    // Class scoped boolean for functions to referance if searchIsActive
+    var searchIsActive = false
+    // Array that stores spots with filtered constraints
     var filtered = [Spot]()
-    
     //hide status bar
     override var prefersStatusBarHidden: Bool {
         return true
@@ -38,15 +39,11 @@ class spotsView: UITableViewController, UISearchBarDelegate {
         search.delegate = self
     }
     
+    // Pass data to views on segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is selectedSpotView {
             let vc = segue.destination as? selectedSpotView
             vc?.selectedSpot = selectedSpot
-//            vc?.id = selected["id"] as! String
-//            vc?.location = selected["location"] as! CLLocationCoordinate2D
-//            vc?.name = selected["name"] as! String
-//            vc?.desc = selected["desc"] as! String
-//            vc?.tags = selected["tags"] as! String
         }
     }
     
@@ -66,16 +63,18 @@ class spotsView: UITableViewController, UISearchBarDelegate {
     }
     // Sets num of cells in table view
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if(searchActive){
+        // If searchIsActive then use the filtered array size for the # of rows
+        if(searchIsActive){
             return filtered.count
         }
         return spots.count
     }
-    // populate the table view
+    
+    // Populate the table view
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellId)
-        
-        if (searchActive){
+        // If search is active use filtered as the
+        if (searchIsActive){
             let spot = filtered[indexPath.row]
             cell.textLabel?.text = spot.name
             cell.detailTextLabel?.text = spot.desc
@@ -86,47 +85,47 @@ class spotsView: UITableViewController, UISearchBarDelegate {
         }
         return cell
     }
-    //excecutes when cell is selected
+    
+    // Excecutes when cell is selected
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Selected row: \(indexPath)")
-        if(searchActive){
+        if(searchIsActive){
             selectedSpot = filtered[indexPath.row]
-
         } else {
             selectedSpot = spots[indexPath.row]
-//           
         }
         performSegue(withIdentifier: "spotsToView", sender: self)
     }
     
+    // Search text editing began
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        searchActive = true;
+        searchIsActive = true;
         print("search did begin editing")
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        searchActive = false;
+        searchIsActive = false;
         print("search did end editing")
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchActive = false;
+        searchIsActive = false;
         print("search did cancel button")
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchActive = false;
+        searchIsActive = false;
         search.resignFirstResponder()
         print("search did search button")
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        filtered = f.filterSpotsForString(spots: spots, string: searchText)
+        filtered = g.filterSpotsForString(spots: spots, string: searchText)
         if searchText.count == 0{
-            searchActive = false
+            searchIsActive = false
         } else if filtered.count != 0{
-            searchActive = true
+            searchIsActive = true
         }
         
         self.tableView.reloadData()

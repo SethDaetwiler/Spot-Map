@@ -14,7 +14,7 @@ import FirebaseAuth
 
 class createView: UIViewController, UITextFieldDelegate {
     let ss = serverSide()
-    let f = functions()
+    let f = global()
     
     let def = UserDefaults.standard
     
