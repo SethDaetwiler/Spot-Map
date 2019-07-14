@@ -13,7 +13,6 @@ import CoreLocation
 
 
 class global {
-    
     //App globals
     let ss = serverSide()
     let screen = UIScreen.main.bounds
@@ -131,12 +130,13 @@ class global {
         }
     }
 
-    
-    
-    
 }
 
-
+extension UIView {
+    func anchor() {
+        
+    }
+}
 
 
 extension String {

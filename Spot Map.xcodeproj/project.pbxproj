@@ -365,13 +365,16 @@
 				TargetAttributes = {
 					DC58166321D5A25500423032 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 					DC58167721D5A25800423032 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = DC58166321D5A25500423032;
 					};
 					DC58168221D5A25800423032 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = DC58166321D5A25500423032;
 					};
 				};
@@ -729,7 +732,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sethdaetwiler.Spot-Map";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -749,7 +752,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sethdaetwiler.Spot-Map";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -769,7 +772,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sethdaetwiler.Spot-MapTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Spot Map.app/Spot Map";
 			};
@@ -790,7 +793,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sethdaetwiler.Spot-MapTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Spot Map.app/Spot Map";
 			};
@@ -810,7 +813,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sethdaetwiler.Spot-MapUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "Spot Map";
 			};
@@ -830,7 +833,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sethdaetwiler.Spot-MapUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "Spot Map";
 			};
