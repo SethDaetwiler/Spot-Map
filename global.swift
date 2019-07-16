@@ -12,15 +12,26 @@ import MapKit
 import CoreLocation
 
 
+extension UIColor {
+    static var mainGreen = UIColor(displayP3Red: 51/255, green: 196/255, blue: 135/255, alpha: 1)
+    static var mainRed = UIColor(displayP3Red: 238/255, green: 120/255, blue: 100/255, alpha: 1)
+}
+
 class global {
     //App globals
     let ss = serverSide()
     let screen = UIScreen.main.bounds
-    let cGreen : UIColor = UIColor(displayP3Red: 51/255, green: 196/255, blue: 135/255, alpha: 1)
+    
     //Map globals
     let locationManager = CLLocationManager()
     let regionInMeters: Double = 1000
     
+    
+    func getTagArray(tagString: String) -> [String]{
+        var array = [String]()
+        array = tagString.components(separatedBy: " ")
+        return array
+    }
     // Takes a non nil string as an argument and cleans the common seperating characters and integers
     // Returns cleaned string
     func separateTagsBySpace(tagString: String) -> String {
@@ -133,6 +144,7 @@ class global {
 }
 
 extension UIView{
+    
     func anchor(top: NSLayoutYAxisAnchor?, bottom: NSLayoutYAxisAnchor?, leading: NSLayoutXAxisAnchor?, trailing: NSLayoutXAxisAnchor?, padding: UIEdgeInsets = .zero, size: CGSize = .zero) {
         
         // need to be false to apply contraints
@@ -162,6 +174,7 @@ extension UIView{
         }
         
     }
+    
 }
 
 
