@@ -66,7 +66,7 @@ class selectedSpotView: UIViewController {
         containerView.layer.cornerRadius = 20
         containerView.layer.shadowColor = UIColor.darkGray.cgColor
         containerView.layer.shadowOffset = .zero
-        containerView.layer.shadowRadius = 20.0
+        containerView.layer.shadowRadius = 5.0
         containerView.layer.shadowOpacity = 0.5
         return containerView
     }()
@@ -159,6 +159,15 @@ class selectedSpotView: UIViewController {
         return stackView
     }()
     
+    var backgroundView : UIView = {
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = .mainGreen
+        backgroundView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        backgroundView.layer.cornerRadius = 6
+        backgroundView.clipsToBounds = true
+        return backgroundView
+    }()
+    
     var descriptionTextView : UITextView = {
         let textView = UITextView()
         textView.isEditable = false
@@ -166,14 +175,14 @@ class selectedSpotView: UIViewController {
         
         textView.layer.borderColor = UIColor.mainGreen.cgColor
         textView.layer.borderWidth = 0.5
-        textView.layer.cornerRadius = 2
+        textView.layer.cornerRadius = 10
         textView.clipsToBounds = true
         return textView
     }()
     
     var tagsCollectionView : UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = .mainGreen
         collectionView.register(CustomTagCell.self, forCellWithReuseIdentifier: "customTagCell")
         return collectionView
     }()
@@ -182,7 +191,8 @@ class selectedSpotView: UIViewController {
         let label = UILabel()
         label.text = "Latitude: "
         label.font = label.font.withSize(17)
-        label.textColor = .lightGray
+        label.textColor = .white
+        label.alpha = 0.5
         return label
     }()
     
@@ -190,7 +200,8 @@ class selectedSpotView: UIViewController {
         let label = UILabel()
         label.text = "Longitude: "
         label.font = label.font.withSize(17)
-        label.textColor = .lightGray
+        label.textColor = .white
+        label.alpha = 0.5
         return label
     }()
     
@@ -198,23 +209,27 @@ class selectedSpotView: UIViewController {
         let label = UILabel()
         label.text = "Created On: "
         label.font = label.font.withSize(17)
-        label.textColor = .black
+        label.textColor = .white
         return label
     }()
     
     var bottomButtonContainerView : UIView = {
         let containerView = UIView()
+        containerView.backgroundColor = .clear
         return containerView
     }()
     
     var bottomEditButton : UIButton = {
         let button = UIButton()
-        button.backgroundColor = .mainGreen
+        button.backgroundColor = .white
         button.setTitle("Edit", for: .normal)
-        button.setTitleColor(.white, for: .normal)
+        button.setTitleColor(.mainGreen, for: .normal)
         
         button.layer.cornerRadius = 10
-        button.clipsToBounds = true
+        button.layer.shadowColor = UIColor.darkGray.cgColor
+        button.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
+        button.layer.shadowRadius = 3.0
+        button.layer.shadowOpacity = 0.3
         
         return button
     }()
@@ -226,7 +241,10 @@ class selectedSpotView: UIViewController {
         button.setTitleColor(.white, for: .normal)
         
         button.layer.cornerRadius = 10
-        button.clipsToBounds = true
+        button.layer.shadowColor = UIColor.darkGray.cgColor
+        button.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
+        button.layer.shadowRadius = 3.0
+        button.layer.shadowOpacity = 0.3
         
         return button
     }()
@@ -281,6 +299,7 @@ class selectedSpotView: UIViewController {
             directionsContainerView.addSubview(directionsButton)
             imageContainerView.addSubview(imageButton)
             mapContainerView.addSubview(mapButton)
+        view.addSubview(backgroundView)
         view.addSubview(descriptionTextView)
         view.addSubview(tagsCollectionView)
         view.addSubview(latLabel)
@@ -317,6 +336,7 @@ class selectedSpotView: UIViewController {
         
         // descriptionView layout
         descriptionTextView.anchor(top: buttonContainerView.bottomAnchor, bottom: nil, leading: view.safeAreaLayoutGuide.leadingAnchor, trailing: view.safeAreaLayoutGuide.trailingAnchor, padding: .init(top: 0, left: 10, bottom: 0, right: 10), size: .init(width: 0, height: 100))
+        backgroundView.anchor(top: descriptionTextView.centerYAnchor, bottom: view.bottomAnchor, leading: view.safeAreaLayoutGuide.leadingAnchor, trailing: view.safeAreaLayoutGuide.trailingAnchor, padding: .init(top: -20, left: 0, bottom: 0, right: 0))
         
         // Following layout is in bottom up order
         // bottomButtonContainerView
@@ -337,18 +357,14 @@ class selectedSpotView: UIViewController {
         // collectionView delegate, datasource, layout
         tagsCollectionView.delegate = self
         tagsCollectionView.dataSource = self
-        tagsCollectionView.anchor(top: descriptionTextView.bottomAnchor, bottom: latLabel.topAnchor, leading: view.safeAreaLayoutGuide.leadingAnchor, trailing: view.safeAreaLayoutGuide.trailingAnchor, padding: .init(top: 10, left: 10, bottom: 20, right: 10), size: .init(width: 0, height: 0))
+        tagsCollectionView.anchor(top: descriptionTextView.bottomAnchor, bottom: latLabel.topAnchor, leading: view.safeAreaLayoutGuide.leadingAnchor, trailing: view.safeAreaLayoutGuide.trailingAnchor, padding: .init(top: 10, left: 10, bottom: 15, right: 10), size: .init(width: 0, height: 0))
         
         
     }
-
-    @IBAction func backButtonAction(_ sender: Any) {
-    }
-    @IBAction func editButtonAction(_ sender: Any) {
-    }
-    
     
 }
+
+// tags collectionView code here
 
 extension selectedSpotView : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -365,11 +381,9 @@ extension selectedSpotView : UICollectionViewDelegate, UICollectionViewDataSourc
         
         return CGSize(width: g.getTagArray(tagString: selectedSpot.tags)[indexPath.item].size(withAttributes: nil).width + 30, height: 20)
     }
-    
-    
-    
 }
 
+// cell setup and customization for tags collectionView
 class CustomTagCell : UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -379,18 +393,21 @@ class CustomTagCell : UICollectionViewCell {
     public var label : UILabel = {
         let label = UILabel()
         label.text = "Default"
-        label.textColor = .white
-        label.backgroundColor = .mainGreen
+        label.textColor = .mainGreen
+        label.backgroundColor = .white
         return label
     }()
     
     // UI Setup for cell
     private func cellSetup(){
-        backgroundColor = .mainGreen
+        backgroundColor = .white
         layer.cornerRadius = frame.height/2
-        clipsToBounds = true
-//        label.layer.cornerRadius = label.frame.height / 2
-//        label.clipsToBounds = true
+        
+        layer.shadowColor = UIColor.darkGray.cgColor
+        layer.shadowOffset = CGSize(width: 0, height: 2.0)
+        layer.shadowRadius = 2.0
+        layer.shadowOpacity = 0.3
+        
         
         addSubview(label)
         label.sizeToFit()

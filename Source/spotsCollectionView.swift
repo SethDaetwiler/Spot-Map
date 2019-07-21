@@ -8,7 +8,7 @@
 
 import UIKit
 
-class spotsCollectionView: UIViewController, UISearchBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
+class spotsCollectionView: UIViewController, UISearchBarDelegate {
     
 //    @IBOutlet var search: UISearchBar!
 //    @IBOutlet var collectionView: UICollectionView!
@@ -29,13 +29,25 @@ class spotsCollectionView: UIViewController, UISearchBarDelegate, UICollectionVi
     override var prefersStatusBarHidden: Bool {
         return true
     }
+    
+    var collectionView : UICollectionView = {
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+        collectionView.backgroundColor = .white
+        collectionView.register(customCell.self, forCellWithReuseIdentifier: "customCell")
+        return collectionView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // UI formatting
+        format()
+        
+        // Network call to get spot data from user
         makeSpots()
+        
         //search.delegate = self
 
-        // Do any additional setup after loading the view.
+        
     }
     
     // Pass data to views on segue
@@ -55,59 +67,13 @@ class spotsCollectionView: UIViewController, UISearchBarDelegate, UICollectionVi
                 self.spots.append(spot)
                 //Updates the table view
                 DispatchQueue.main.async {
-                    //self.collectionView.reloadData()
+                    self.collectionView.reloadData()
                 }
             }
         })
     }
 
-    // Sets Number of rows for collection view
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if(searchActive){
-            return filtered.count
-        }
-        return spots.count
-    }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! spotsCollectionViewCell
-        
-        #if targetEnvironment(simulator)
-        // simulator code
-            if (searchActive){
-                let spot = filtered[indexPath.item]
-                cell.nameLabel.text = spot.name
-            } else {
-                let spot = spots[indexPath.item]
-                cell.nameLabel.text = spot.name
-            }
-        #else
-        // real device code
-        // If searchActive use filtered array
-            if (searchActive){
-                let spot = filtered[indexPath.item]
-                cell.nameLabel.text = spot.name
-                cell.imageView.image = UIImage(data: ss.def.data(forKey: "image-data.\(spot.name)")!)
-            } else {
-                let spot = spots[indexPath.item]
-                cell.nameLabel.text = spot.name
-                cell.imageView.image = UIImage(data: ss.def.data(forKey: "image-data.\(spot.name)")!)
-            }
-        #endif
-        
-        return cell
-    }
-    
-    // Cell selected --> stopped here
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Selected item: \(indexPath)")
-        if(searchActive){
-            selectedSpot = filtered[indexPath.item]
-        } else {
-            selectedSpot = spots[indexPath.item]
-        }
-        performSegue(withIdentifier: "spotsToView", sender: self)
-    }
     
     // Search
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
@@ -147,4 +113,130 @@ class spotsCollectionView: UIViewController, UISearchBarDelegate, UICollectionVi
         //self.collectionView.reloadData()
     }
     
+    func format(){
+        // Add subviews in appropriate order
+        view.addSubview(collectionView)
+        
+        // constraints and other stuff
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.anchor(top: view.safeAreaLayoutGuide.topAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, leading: view.safeAreaLayoutGuide.leadingAnchor, trailing: view.safeAreaLayoutGuide.trailingAnchor)
+    }
+    
+}
+
+// tags collectionView code here
+
+extension spotsCollectionView : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    // Sets Number of rows for collection view
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if(searchActive){
+            return filtered.count
+        }
+        return spots.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "customCell", for: indexPath) as! customCell
+        
+        #if targetEnvironment(simulator)
+        // simulator code
+        if (searchActive){
+            let spot = filtered[indexPath.item]
+            cell.titleLabel.text = spot.name
+        } else {
+            let spot = spots[indexPath.item]
+            cell.titleLabel.text = spot.name
+        }
+        #else
+        // real device code
+        // If searchActive use filtered array
+        if (searchActive){
+            let spot = filtered[indexPath.item]
+            cell.titleLabel.text = spot.name
+            // TODO
+            //cell.imageView.image = UIImage(data: ss.def.data(forKey: "image-data.\(spot.name)")!)
+        } else {
+            let spot = spots[indexPath.item]
+            cell.titleLabel.text = spot.name
+            //cell.imageView.image = UIImage(data: ss.def.data(forKey: "image-data.\(spot.name)")!)
+        }
+        #endif
+        
+        return cell
+    }
+    
+    // Cell selected --> stopped here
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("Selected item: \(indexPath)")
+        if(searchActive){
+            selectedSpot = filtered[indexPath.item]
+        } else {
+            selectedSpot = spots[indexPath.item]
+        }
+        performSegue(withIdentifier: "spotsToView", sender: self)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        return CGSize(width: view.frame.width / 2, height: 100)
+    }
+}
+
+
+class customCell : UICollectionViewCell {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        backgroundColor = .red
+        cellSetup()
+    }
+    
+    var baseView : UIView = {
+        let base = UIView()
+        base.backgroundColor = .blue
+        return base
+    }()
+    
+    var dataView : UIView = {
+        let dataView = UIView()
+        return dataView
+    }()
+    
+    var titleLabel : UILabel = {
+        let label = UILabel()
+        label.font = label.font.withSize(8)
+        label.textColor = .black
+        label.textAlignment = .left
+        label.numberOfLines = 2
+        label.lineBreakMode = NSLineBreakMode.byWordWrapping
+        return label
+    }()
+    
+    var editButton : UIButton = {
+        let button = UIButton()
+        button.setTitle("...", for: .normal)
+        button.setTitleColor(.blue, for: .normal)
+        button.titleLabel?.baselineAdjustment = .alignCenters
+        return button
+    }()
+    
+    
+    func cellSetup(){
+        addSubview(baseView)
+            baseView.addSubview(dataView)
+                dataView.addSubview(titleLabel)
+                dataView.addSubview(editButton)
+        
+        
+        
+        baseView.anchor(top: topAnchor, bottom: nil, leading: leadingAnchor, trailing: nil, padding: .init(top: 0, left: 0, bottom: 0, right: 0))
+        dataView.anchor(top: nil, bottom: baseView.bottomAnchor, leading: baseView.leadingAnchor, trailing: baseView.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 0), size: .init(width: 0, height: 40))
+        editButton.anchor(top: dataView.topAnchor, bottom: dataView.bottomAnchor, leading: nil, trailing: dataView.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 0), size: .init(width: 40, height: 40))
+        titleLabel.anchor(top: dataView.topAnchor, bottom: dataView.bottomAnchor, leading: dataView.leadingAnchor, trailing: editButton.leadingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 0), size: .init(width: 0, height: 40))
+        
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
